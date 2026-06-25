@@ -6,7 +6,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 const FB = '60b250cd524f5de5e6685f17719d63ed';
-const CL = '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';
+const CL = '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';
 app.get('/', (req, res) => { res.sendFile(path.join(__dirname, 'pronosticos.html')); });
 app.get('/api', async (req, res) => {
   try {
