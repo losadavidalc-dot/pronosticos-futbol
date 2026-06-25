@@ -118,7 +118,7 @@
 </div>
 
 <script>
-const PROXY='http://localhost:3001/api';
+const PROXY=window.location.origin+'/api';
 
 var TEAMS={
   'Germany':'Alemania','France':'Francia','Spain':'España','Portugal':'Portugal',
@@ -149,7 +149,7 @@ var TEAMS={
 };
 function tr(n){return TEAMS[n]||n;}
 
-const CLAUDE='http://localhost:3001/claude';
+const CLAUDE=window.location.origin+'/claude';
 let sel=null,tab='completo',currentLeague={id:1,season:2026};
 
 function api(ep,params={}){
@@ -403,3 +403,4 @@ loadFixtures();
 </script>
 </body>
 </html>
+
