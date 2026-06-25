@@ -6,7 +6,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 const FB = '60b250cd524f5de5e6685f17719d63ed';
-const CL = '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';
+const CL = process.env.ANTHROPIC_KEY || '';
 app.get('/', (req, res) => { res.sendFile(path.join(__dirname, 'pronosticos.html')); });
 app.get('/api', async (req, res) => {
   try {
