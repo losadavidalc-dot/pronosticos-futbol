@@ -28,4 +28,5 @@ app.post('/claude', async (req, res) => {
     res.json(await r.json());
   } catch(e) { res.status(500).json({ error: e.message }); }
 });
-app.listen(3001, () => console.log('OK - Abre http://localhost:3001'));
+const PORT = process.env.PORT || 3001;
+app.listen(PORT, () => console.log('OK - Puerto ' + PORT));
