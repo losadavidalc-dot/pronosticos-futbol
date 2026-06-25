@@ -389,7 +389,7 @@ Termina con advertencia anti-sesgo específica para este partido.`;
       body:JSON.stringify({model:'claude-sonnet-4-6',max_tokens:4000,system:sys,messages:[{role:'user',content:usr}]})});
     if(!res.ok){const e=await res.json().catch(()=>({}));throw new Error(e.error?.message||`HTTP ${res.status}`);}
     const d=await res.json();
-    const text=d.content.map(i=>i.type==='text'?i.text:'').filter(Boolean).join('\n');
+    const text=(d&&d.content&&Array.isArray(d.content))?d.content.map(i=>i&&i.type==='text'?i.text:'').filter(Boolean).join('\n'):(d&&d.error?'Error API: '+d.error.message:'Sin respuesta');
     box.innerHTML=`<div class="result">${renderMarkdown(text)}</div>`;
   }catch(e){
     box.innerHTML=`<div class="err">❌ Error: ${e.message}</div>`;
@@ -403,5 +403,4 @@ loadFixtures();
 </script>
 </body>
 </html>
-
 
